@@ -13,7 +13,7 @@ import { TableComponent } from './oct1/table/table.component';
     Oct1Component,
     FormComponent,
     TableComponent
-  ],
+  ], 
   imports: [
     BrowserModule,
     AppRoutingModule
