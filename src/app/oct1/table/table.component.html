@@ -1,1 +1,29 @@
-<p>table works!</p>
+<div class="container">
+    <h1>This is a player database</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Runs</th>
+                <th>Average</th>
+                <th>Catches</th>
+                <th>Wickets</th>
+                <th>HasRetired</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let player of players">
+                <td>{{ player.id }}</td>
+                <td>{{ player.name }}</td>
+                <td>{{ player.runs }}</td>
+                <td>{{ player.average }}</td>
+                <td>{{ player.catches }}</td>
+                <td>{{ player.wickets }}</td>
+                <td><input type="checkbox" name="hasRetired" [(ngModel)]="player.hasRetired"></td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-primary" (click)="addSomeone()">Refresh</button>
+    <button class="btn btn-danger ml-2" (click)="removePlayers()">Delete</button>
+</div>

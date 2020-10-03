@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Oct1Component implements OnInit {
 
+  dataEntered
   constructor() { }
 
   ngOnInit(): void {
+  }
+  onDataEntered(dataEntered){
+    this.dataEntered = dataEntered
+    console.log('from parent component',this.dataEntered)
   }
 
 }

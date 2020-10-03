@@ -1,15 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit {
+export class FormComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  @Output() dataEntered = new EventEmitter()
+  form = new FormGroup({
+    id: new FormControl('',Validators.required),
+    name: new FormControl('',Validators.required),
+    runs: new FormControl('',Validators.required),
+    average: new FormControl('',Validators.required),
+    catches: new FormControl('',Validators.required),
+    wickets: new FormControl('',Validators.required)
+  })
+  get id(){return this.form.get('id')}
+  get name(){return this.form.get('name')}
+  get runs(){return this.form.get('runs')}
+  get average(){return this.form.get('average')}
+  get catches(){return this.form.get('catches')}
+  get wickets(){return this.form.get('wickets')}
+  
+ dataSend(){
+   let data = this.form.value
+   console.log('from form component',data)
+   this.dataEntered.emit(data)
+   console.log('emitted')
+ }
 }

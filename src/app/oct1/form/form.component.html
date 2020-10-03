@@ -1,1 +1,46 @@
-<p>form works!</p>
+<h3 class="container mt-5 mb-3">Add players to the database</h3>
+<form class="container" [formGroup]="form">
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="id">ID</label>
+                <input type="text" formControlName="id" name="id" class="form-control" id="id" placeholder="id">
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="id">Name</label>
+                <input type="text" formControlName="name" name="name" class="form-control" id="name" placeholder="Name">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="id">Runs</label>
+                <input type="text" formControlName="runs" name="runs" class="form-control" id="runs" placeholder="runs">
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="id">Average</label>
+                <input type="text" formControlName="average" name="average" class="form-control" id="average" placeholder="average">
+            </div>
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="id">Catches</label>
+                <input type="text" formControlName="catches" name="catches" class="form-control" id="catches" placeholder="catches">
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="id">Wickets</label>
+                <input type="text" formControlName="wickets" name="wickets" class="form-control" id="wickets" placeholder="wickets">
+            </div>
+        </div>        
+    </div>
+    <button class="btn btn-primary" (click)="dataSend()">Save</button>
+</form>
