@@ -20,7 +20,11 @@
                 <td>{{ player.average }}</td>
                 <td>{{ player.catches }}</td>
                 <td>{{ player.wickets }}</td>
-                <td><input type="checkbox" name="hasRetired" [(ngModel)]="player.hasRetired"></td>
+                <td><input type="checkbox" name="retired" [(ngModel)]="player.hasRetired"></td>
+                    <!-- <form [formGroup]="form">
+                        <input type="checkbox" formControlName="hasRetired">
+                    </form> 
+                </td> -->
             </tr>
         </tbody>
     </table>

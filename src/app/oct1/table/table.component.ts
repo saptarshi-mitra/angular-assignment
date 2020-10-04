@@ -1,7 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PlayersService } from './players.service';
 
-
+export interface playersData{
+  id: number,
+  name: string,
+  runs: number,
+  average: number,
+  wickets: number,
+  catches: number,
+  hasRetired: boolean
+}
 
 @Component({
   selector: 'app-table',
@@ -10,8 +18,8 @@ import { PlayersService } from './players.service';
 })
 export class TableComponent implements OnInit {
 
-  @Input() dataEntered
-  players
+  @Input() dataEntered: playersData
+  players: playersData[]
 
   constructor(service: PlayersService) {
     this.players = service.getPlayers()
@@ -26,6 +34,5 @@ export class TableComponent implements OnInit {
 
   removePlayers(){
     this.players = this.players.filter(player => !player.hasRetired)
-    console.log(this.players)
   }
 }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -24,10 +24,5 @@ export class FormComponent {
   get catches(){return this.form.get('catches')}
   get wickets(){return this.form.get('wickets')}
   
- dataSend(){
-   let data = this.form.value
-   console.log('from form component',data)
-   this.dataEntered.emit(data)
-   console.log('emitted')
- }
+ dataSend(){ this.dataEntered.emit(this.form.value) }
 }

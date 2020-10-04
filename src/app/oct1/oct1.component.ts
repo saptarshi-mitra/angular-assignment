@@ -1,20 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { playersData } from './table/table.component';
 
 @Component({
   selector: 'app-oct1',
   templateUrl: './oct1.component.html',
   styleUrls: ['./oct1.component.css']
 })
-export class Oct1Component implements OnInit {
+export class Oct1Component {
 
-  dataEntered
-  constructor() { }
+  dataEntered: playersData
 
-  ngOnInit(): void {
-  }
-  onDataEntered(dataEntered){
-    this.dataEntered = dataEntered
-    console.log('from parent component',this.dataEntered)
-  }
+  onDataEntered(dataEntered: playersData){ this.dataEntered = dataEntered }
 
 }
