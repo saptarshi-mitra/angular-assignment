@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row mb-2">
+      <div class="card col-md-12 mb-9">
+        <div class="row no-gutters">
+          <div class="col-md-2 pt-4">
+            <img src="https://angular.io/assets/images/logos/angular/logo-nav@2x.png" class="card-img" alt="Hello1">
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <h5 class="card-title">Hello1</h5>
+              <p class="card-text"><small class="text-muted">No extra details</small></p>
+              <p class="card-text"><small class="text-muted">Seller: Flipkart &nbsp; </small></p>
+              <p class="card-text">Rs. 100001</p>
+            </div>
+            <div class="text-right">
+                <button class="{{ buttonStyle }} mb-2" (click)="addOrRemoveFromCart()">{{value}}</button>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card-body">
+              <p class="card-text"><small>Delivery by huawei | <span class="text-success">Free</span></small></p>
+              <p class="card-text"><small class="text-muted">item is replacable</small></p>
+            </div>
+          </div>
+        </div>    
+      </div>
+    </div>
+    <!-- <div>Cart details
+        <p>Item has been added: {{hasBeenAddedToCart}}</p>
+    </div> -->
+</div>

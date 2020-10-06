@@ -8,13 +8,17 @@ import { Oct1Component } from './oct1/oct1.component';
 import { FormComponent } from './oct1/form/form.component';
 import { TableComponent } from './oct1/table/table.component';
 import { PlayersService } from './oct1/table/players.service';
+import { Oct5Component } from './oct5/oct5.component';
+import { ItemComponent } from './oct5/item/item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     Oct1Component,
     FormComponent,
-    TableComponent
+    TableComponent,
+    Oct5Component,
+    ItemComponent
   ], 
   imports: [
     BrowserModule,
