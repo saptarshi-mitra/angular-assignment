@@ -10,6 +10,10 @@ import { TableComponent } from './oct1/table/table.component';
 import { PlayersService } from './oct1/table/players.service';
 import { Oct5Component } from './oct5/oct5.component';
 import { ItemComponent } from './oct5/item/item.component';
+import { Oct6Component } from './oct6/oct6.component';
+import { Sibling1Component } from './oct6/sibling1/sibling1.component';
+import { Sibling2Component } from './oct6/sibling2/sibling2.component';
+import { SendMessageService } from './oct6/send-message.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,10 @@ import { ItemComponent } from './oct5/item/item.component';
     FormComponent,
     TableComponent,
     Oct5Component,
-    ItemComponent
+    ItemComponent,
+    Oct6Component,
+    Sibling1Component,
+    Sibling2Component
   ], 
   imports: [
     BrowserModule,
@@ -26,7 +33,9 @@ import { ItemComponent } from './oct5/item/item.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [PlayersService],
+  providers: [
+    PlayersService,
+    SendMessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
