@@ -1,4 +1,5 @@
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http'
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -13,7 +14,9 @@ import { ItemComponent } from './oct5/item/item.component';
 import { Oct6Component } from './oct6/oct6.component';
 import { Sibling1Component } from './oct6/sibling1/sibling1.component';
 import { Sibling2Component } from './oct6/sibling2/sibling2.component';
-import { SendMessageService } from './oct6/send-message.service';
+import { Oct7Component } from './oct7/oct7.component';
+import { PlayersTableComponent } from './oct7/players-table/players-table.component';
+import { PlayerDataService } from './oct7/player-data.service';
 
 @NgModule({
   declarations: [
@@ -25,17 +28,21 @@ import { SendMessageService } from './oct6/send-message.service';
     ItemComponent,
     Oct6Component,
     Sibling1Component,
-    Sibling2Component
+    Sibling2Component,
+    Oct7Component,
+    PlayersTableComponent
   ], 
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     PlayersService,
-    SendMessageService],
+    PlayerDataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
