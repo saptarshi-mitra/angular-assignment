@@ -17,6 +17,8 @@ import { Sibling2Component } from './oct6/sibling2/sibling2.component';
 import { Oct7Component } from './oct7/oct7.component';
 import { PlayersTableComponent } from './oct7/players-table/players-table.component';
 import { PlayerDataService } from './oct7/player-data.service';
+import { Oct12Component } from './oct12/oct12.component';
+import { CrudrxjsComponent } from './oct12/crudrxjs/crudrxjs.component'
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { PlayerDataService } from './oct7/player-data.service';
     Sibling1Component,
     Sibling2Component,
     Oct7Component,
-    PlayersTableComponent
+    PlayersTableComponent,
+    Oct12Component,
+    CrudrxjsComponent
   ], 
   imports: [
     BrowserModule,
