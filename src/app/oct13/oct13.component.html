@@ -1,0 +1,34 @@
+<h1>Welcome to our online shoping page</h1>
+<div class="container">
+  <div class="card mb-12 p-3" *ngFor="let mobile of mobiles">
+    <div class="row no-gutters">
+      <div class="col-md-2">
+        <div class="text-center">
+          <img src="{{mobile.img}}" class="card-img card-image mx-auto mobileImage" alt="{{mobile.details.name}}">
+        </div>
+        <div class="compare">          
+          <input type="checkbox" name="check">
+          <label for="check">Add to Compare</label>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <h5 class="card-title">{{mobile.details.name}}</h5>
+          <p><span class="bg-green">{{mobile.details.rating}}<ion-icon name="star"></ion-icon></span>&nbsp;{{mobile.details.totalRating}} Ratings & {{mobile.details.review}} Reviews</p>
+          <ul *ngFor="let desc of mobile.details.description">
+              <li>{{ desc }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-2 pt-3">
+        <div class="card-text">
+          <span class="price">&#8377;{{mobile.price}}</span>&nbsp;<img src="https://img1a.flixcart.com/www/linchpin/fk-cp-zion/img/fa_8b4b59.png" height="22px" width="80px">
+          <p>No Cost EMI</p>
+          <button class="btn btn-success" (click)="addToCart(mobile.id)">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary btn-lg btn-block mt-3" routerLink="/cart">To cart</button>
+  
+</div>
