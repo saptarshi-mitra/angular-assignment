@@ -10,12 +10,14 @@ export class Oct13Component implements OnInit {
 
   mobiles
   cart
+  noOfItems
   constructor(private _service: MobileserviceService) { }
 
   ngOnInit(): void {
     // this._service.castMobiles.subscribe(mobile => this.mobiles = mobile)
     this._service.getMobiles().subscribe(mobile => this.mobiles = mobile)
     this._service.castCart.subscribe(cartItems => this.cart = cartItems)
+    this.noOfItems = this.cart.reduce((acc, item) => acc + item.qty, 0)
   }
 
   addToCart(id: number){

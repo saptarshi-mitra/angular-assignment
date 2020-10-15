@@ -19,14 +19,25 @@ export class CartComponent implements OnInit {
   }
 
   totalPrice(){
-    this.cartPrice = this.cart.reduce((acc, item) => acc + item.price, 0)
-    this.noOfItems = this.cart.length
+    this.cartPrice = this.cart.reduce((acc, item) => acc + (item.price * item.qty), 0)
+    this.noOfItems = this.cart.reduce((acc, item) => acc + item.qty, 0)
   }
 
   removeFromCart(id: number){
     this.cart = this.cart.filter(item => item.id != id)
-    this.totalPrice()
     this._service.setCart(this.cart)
+    this.totalPrice()
+    
+  }
+
+  increaseNumber(id: number){
+    this.cart.filter(item => item.id == id)[0]['qty']++
+    this.totalPrice()
+  }
+  
+  decreaseNumber(id: number){
+    this.cart.filter(item => item.id == id)[0]['qty']--
+    this.totalPrice()
   }
 
 }

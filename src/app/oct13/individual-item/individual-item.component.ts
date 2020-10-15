@@ -18,7 +18,6 @@ export class IndividualItemComponent implements OnInit {
 
   ngOnInit(): void {
     const id = +this._route.snapshot.paramMap.get('id')
-    console.log(id)
     this._service.getMobiles().pipe(
       concatMap(mobile => from(mobile as any[])),
       filter((mobile: any) => mobile.id == id))
@@ -30,6 +29,7 @@ export class IndividualItemComponent implements OnInit {
   }
 
   addToCart(){
+    this.mobile['qty'] = 1
     this.cart.push(this.mobile)
     this._service.setCart(this.cart)
     this.toCart = true

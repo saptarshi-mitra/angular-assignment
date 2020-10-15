@@ -3,8 +3,15 @@
     <div class="row mb-2 pb-3" *ngFor="let cartItem of cart">
       <div class="card col-md-12 mb-9">
         <div class="row no-gutters">
-          <div class="col-md-2 pt-4 image">
-            <img src="{{cartItem.img}}" class="card-img pb-3" alt="Hello1">
+          <div class="col-md-2 pt-4 d-flex justify-content-center flex-column">
+            <img src="{{cartItem.img}}" class="card-img pb-3 align-self-center" alt="{{cartItem.details.name}}">
+          <div class="d-flex justify-centent-center">
+            <div class="align-self-center">
+              <button class="btn btn-primary" (click)="increaseNumber(cartItem.id)">+</button>
+              <span class="px-3 mt-1">{{ cartItem.qty }}</span>
+              <button class="btn btn-primary" [disabled]="!(cartItem.qty>1)" (click)="decreaseNumber(cartItem.id)">&mdash;</button>
+            </div>
+          </div>
           </div>
           <div class="col-md-7">
             <div class="card-body">
@@ -27,9 +34,9 @@
     </div>
     <div class="card mb-3" *ngIf="noOfItems>0">
       <div class="card-body">
-        Your have {{noOfItems}} <span *ngIf="noOfItems>1; else oneOrLess">items</span><ng-template #oneOrLess>item</ng-template> in your cart and total value of your cart is Rs.{{cartPrice}}
+        Your have {{noOfItems}} <span *ngIf="noOfItems>1; else oneOrLess">items</span><ng-template #oneOrLess>item</ng-template> in your cart and total value of your cart is <strong>Rs.{{cartPrice}}</strong>
       </div>
     </div>
-    <button *ngIf="noOfItems>0" class="btn btn-success btn-lg btn-block" routerLink="/checkout">Continue to place order</button>
+    <button *ngIf="noOfItems>0" class="btn btn-success btn-lg btn-block animate__animated animate__rubberBand" routerLink="/checkout">Continue to place order</button>
     <button class="btn btn-primary btn-sm btn-block" routerLink="">Add more items to your cart</button>
 </div>
