@@ -2,3 +2,8 @@
     height: 250px;
     width: 120px;
 }
+
+.price{
+    font-size: 180%;
+    font-weight: 600;
+}

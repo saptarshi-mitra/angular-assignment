@@ -21,7 +21,9 @@ import { Oct12Component } from './oct12/oct12.component';
 import { CrudrxjsComponent } from './oct12/crudrxjs/crudrxjs.component';
 import { Oct13Component } from './oct13/oct13.component';
 import { CartComponent } from './oct13/cart/cart.component';
-import { CheckoutComponent } from './oct13/checkout/checkout.component'
+import { CheckoutComponent } from './oct13/checkout/checkout.component';
+import { IndividualItemComponent } from './oct13/individual-item/individual-item.component';
+import { FlipnavComponent } from './oct13/flipnav/flipnav.component'
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { CheckoutComponent } from './oct13/checkout/checkout.component'
     CrudrxjsComponent,
     Oct13Component,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    IndividualItemComponent,
+    FlipnavComponent
   ], 
   imports: [
     BrowserModule,

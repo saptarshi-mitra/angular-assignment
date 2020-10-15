@@ -1,0 +1,36 @@
+<div class="row mt-4">
+    <div *ngIf="mobile" class="col-4 d-flex justify-content-center flex-column">
+        <img class="phone-img align-self-center" src="{{ mobile.img }}" alt="{{ mobile.details.name }}">
+        <button class="btn btn-primary mt-4" (click)="addToCart()">Add to cart</button>
+    </div>
+    <div *ngIf="mobile" class="col-8">
+        <h3>{{ mobile.details.name }}</h3>
+        <p>
+            <span class="badge badge-success">{{ mobile.details.rating }}<ion-icon name="star"></ion-icon></span> 
+            {{ mobile.details.totalRating }} Ratings
+            {{ mobile.details.review }} Reviews
+            <img *ngIf="mobile.isFlipkartAssured" src="https://img1a.flixcart.com/www/linchpin/fk-cp-zion/img/fa_8b4b59.png" height="20px" width="80px">
+        </p>
+        <h1>{{ mobile.price | currency: 'INR' }}</h1>
+        <div class="offers">
+            <h5>Some special offers</h5>
+            <ul>
+                <li *ngFor="let offer of mobile.offers.bankOffers">{{ offer }}</li>
+            </ul>
+        </div>
+        <div class="highlights">
+            <h5>Highlights</h5>
+            <ul>
+                <li *ngFor="let spec of mobile.details.description">{{ spec }}</li>
+            </ul>
+        </div>
+        <div class="highlights">
+            <h5>Seller</h5>
+            <p class="ml-5">{{ mobile.seller.name }}<span class="badge badge-primary ml-2">{{ mobile.seller.rating }}<ion-icon name="star"></ion-icon></span><p>
+        </div>
+    </div>
+</div>
+<div class="d-flex justify-content-center flex-column">
+    <button *ngIf="toCart" class="btn btn-large btn-primary align-self-center my-4" routerLink="/cart">Great choice, go to cart?</button>
+    <button class="btn btn-small align-self-center btn-primary my-4" routerLink="/">Shop more</button>
+</div>

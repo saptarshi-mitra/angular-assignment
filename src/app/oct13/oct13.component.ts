@@ -13,7 +13,8 @@ export class Oct13Component implements OnInit {
   constructor(private _service: MobileserviceService) { }
 
   ngOnInit(): void {
-    this._service.castMobiles.subscribe(mobile => this.mobiles = mobile)
+    // this._service.castMobiles.subscribe(mobile => this.mobiles = mobile)
+    this._service.getMobiles().subscribe(mobile => this.mobiles = mobile)
     this._service.castCart.subscribe(cartItems => this.cart = cartItems)
   }
 
