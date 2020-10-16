@@ -10,7 +10,8 @@
     <div class="row mt-4">
         <div *ngIf="mobile" class="col-4 d-flex justify-content-center flex-column">
             <img class="phone-img align-self-center" src="{{ mobile.img }}" alt="{{ mobile.details.name }}">
-            <button class="btn btn-primary mt-4" (click)="addToCart()">Add to cart</button>
+            <div class="alert alert-success text-center mt-4" *ngIf="mobile.qty>0">Item added to cart</div>
+            <button class="btn btn-primary mt-2" (click)="addToCart()">Add to cart</button>
         </div>
         <div *ngIf="mobile" class="col-8">
             <h3>{{ mobile.details.name }}</h3>
@@ -33,9 +34,14 @@
                     <li *ngFor="let spec of mobile.details.description">{{ spec }}</li>
                 </ul>
             </div>
-            <div class="highlights">
+            <div class="seller">
                 <h5>Seller</h5>
                 <p class="ml-5">{{ mobile.seller.name }}<span class="badge badge-primary ml-2">{{ mobile.seller.rating }}<ion-icon name="star"></ion-icon></span><p>
+            </div>
+            <div class="rating-reviews">
+                <h5>Ratings & Reviews</h5>
+                <p class="ml-5">This item is rated {{ mobile.details.rating }}<ion-icon name="star"></ion-icon> by {{ mobile.details.totalRating }} people<p>
+                <p class="ml-5">This items have been reviewed by {{ mobile.details.review }} people</p>
             </div>
         </div>
     </div>

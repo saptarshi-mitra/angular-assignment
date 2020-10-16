@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="noOfItems>0">
   <h3>Your cart</h3>
     <div class="row mb-2 pb-3" *ngFor="let cartItem of cart">
       <div class="card col-md-12 mb-9">
@@ -6,9 +6,9 @@
           <div class="col-md-2 pt-4 d-flex justify-content-center flex-column">
             <img src="{{cartItem.img}}" class="card-img pb-3 align-self-center" alt="{{cartItem.details.name}}">
             <div class="text-center mb-2">
-              <button class="btn btn-primary" (click)="increaseNumber(cartItem.id)">+</button>
+              <button class="btn btn-primary" (click)="increaseNumber(cartItem.id)">&#43;</button>
               <span class="px-3 mt-1">{{ cartItem.qty }}</span>
-              <button class="btn btn-primary" [disabled]="!(cartItem.qty>1)" (click)="decreaseNumber(cartItem.id)">&mdash;</button>
+              <button class="btn btn-primary" [disabled]="!(cartItem.qty>1)" (click)="decreaseNumber(cartItem.id)">&minus;</button>
             </div>
           </div>
           <div class="col-md-7">
@@ -37,4 +37,12 @@
     </div>
     <button *ngIf="noOfItems>0" class="btn btn-success btn-lg btn-block animate__animated animate__rubberBand" routerLink="/checkout">Continue to place order</button>
     <button class="btn btn-primary btn-sm btn-block" routerLink="">Add more items to your cart</button>
+</div>
+<div class="container" *ngIf="!(noOfItems>0)">
+  <div class="alert alert-danger">
+    Please add items to your cart and then visit this page
+  </div>
+  <div class="text-center">
+    <button class="btn btn-primary btn-lg animate__animated animate__jackInTheBox" routerLink="">Go to home</button>
+  </div>
 </div>

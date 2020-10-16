@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MobileDataType } from './data-type';
 import { MobileserviceService } from './mobileservice.service';
 
 @Component({
@@ -8,21 +9,15 @@ import { MobileserviceService } from './mobileservice.service';
 })
 export class Oct13Component implements OnInit {
 
-  mobiles
-  cart
-  noOfItems
+  mobiles: MobileDataType[]
+  cart: MobileDataType[]
+  noOfItems: number
   constructor(private _service: MobileserviceService) { }
 
   ngOnInit(): void {
-    // this._service.castMobiles.subscribe(mobile => this.mobiles = mobile)
-    this._service.getMobiles().subscribe(mobile => this.mobiles = mobile)
-    this._service.castCart.subscribe(cartItems => this.cart = cartItems)
-    this.noOfItems = this.cart.reduce((acc, item) => acc + item.qty, 0)
-  }
-
-  addToCart(id: number){
-    this.cart.push(this.mobiles.filter(mobile => mobile.id == id)[0])
-    this._service.setCart(this.cart)
+    this._service.getMobiles().subscribe((mobile: MobileDataType[]) => this.mobiles = mobile)
+    this._service.castCart.subscribe((cartItems: MobileDataType[]) => this.cart = cartItems)
+    this.noOfItems = this.cart.reduce((acc, item: MobileDataType) => acc + item.qty, 0)
   }
 
 }

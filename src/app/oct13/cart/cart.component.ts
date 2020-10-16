@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MobileDataType } from '../data-type';
 import { MobileserviceService } from '../mobileservice.service';
 
 @Component({
@@ -8,35 +9,34 @@ import { MobileserviceService } from '../mobileservice.service';
 })
 export class CartComponent implements OnInit {
 
-  cart
-  cartPrice
-  noOfItems
+  cart: MobileDataType[]
+  cartPrice: number
+  noOfItems: number
   constructor(private _service: MobileserviceService) { }
 
   ngOnInit(): void {
-    this._service.castCart.subscribe(cartItems => this.cart = cartItems)
+    this._service.castCart.subscribe((cartItems: MobileDataType[]) => this.cart = cartItems)
     this.totalPrice()
   }
 
   totalPrice(){
-    this.cartPrice = this.cart.reduce((acc, item) => acc + (item.price * item.qty), 0)
-    this.noOfItems = this.cart.reduce((acc, item) => acc + item.qty, 0)
+    this.cartPrice = this.cart.reduce((acc, item: MobileDataType) => acc + (item.price * item.qty), 0)
+    this.noOfItems = this.cart.reduce((acc, item: MobileDataType) => acc + item.qty, 0)
   }
 
-  removeFromCart(id: number){
-    this.cart = this.cart.filter(item => item.id != id)
+  removeFromCart(id: number): void {
+    this.cart = this.cart.filter((item: MobileDataType) => item.id != id)
     this._service.setCart(this.cart)
     this.totalPrice()
-    
   }
 
-  increaseNumber(id: number){
-    this.cart.filter(item => item.id == id)[0]['qty']++
+  increaseNumber(id: number): void {
+    this.cart.filter((item: MobileDataType) => item.id == id)[0]['qty']++
     this.totalPrice()
   }
   
-  decreaseNumber(id: number){
-    this.cart.filter(item => item.id == id)[0]['qty']--
+  decreaseNumber(id: number): void {
+    this.cart.filter((item: MobileDataType) => item.id == id)[0]['qty']--
     this.totalPrice()
   }
 
