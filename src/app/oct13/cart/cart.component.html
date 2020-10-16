@@ -5,13 +5,11 @@
         <div class="row no-gutters">
           <div class="col-md-2 pt-4 d-flex justify-content-center flex-column">
             <img src="{{cartItem.img}}" class="card-img pb-3 align-self-center" alt="{{cartItem.details.name}}">
-          <div class="d-flex justify-centent-center">
-            <div class="align-self-center">
+            <div class="text-center mb-2">
               <button class="btn btn-primary" (click)="increaseNumber(cartItem.id)">+</button>
               <span class="px-3 mt-1">{{ cartItem.qty }}</span>
               <button class="btn btn-primary" [disabled]="!(cartItem.qty>1)" (click)="decreaseNumber(cartItem.id)">&mdash;</button>
             </div>
-          </div>
           </div>
           <div class="col-md-7">
             <div class="card-body">

@@ -6,6 +6,14 @@
       </svg>&nbsp;Cart <span class="badge badge-light">{{ noOfItems }}</span>
     </button>
   </div>
+  <!--loading-->
+  <div class="container animate__animated animate__flipInX loading" *ngIf="!mobiles">
+    Please wait while we fetch awesome deals...
+  </div>
+  <div class="container animate__animated animate__flipOutY loading" *ngIf="mobiles">
+    Please wait while we fetch awesome deals...
+  </div>
+  <!--end-->
   <div class="card mb-12 p-3" *ngFor="let mobile of mobiles">
     <div class="row no-gutters">
       <div class="col-md-2">
