@@ -1,0 +1,48 @@
+<div class="container" *ngIf="noOfItems>0">
+  <h3>Your cart</h3>
+    <div class="row mb-2 pb-3" *ngFor="let cartItem of cart">
+      <div class="card col-md-12 mb-9">
+        <div class="row no-gutters">
+          <div class="col-md-2 pt-4 d-flex justify-content-center flex-column">
+            <img src="{{cartItem.img}}" class="card-img pb-3 align-self-center" alt="{{cartItem.details.name}}">
+            <div class="text-center mb-2">
+              <button class="btn btn-primary" (click)="increaseNumber(cartItem.id)">&#43;</button>
+              <span class="px-3 mt-1">{{ cartItem.qty }}</span>
+              <button class="btn btn-primary" [disabled]="!(cartItem.qty>1)" (click)="decreaseNumber(cartItem.id)">&minus;</button>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <h5 class="card-title">{{cartItem.details.name}}</h5>
+              <p class="card-text"><small class="text-muted">Seller: {{cartItem.seller.name}} &nbsp; </small></p>
+              <p class="card-text">Rs. {{cartItem.price}}</p>
+            </div>
+            <div class="text-right">
+                <button class="btn btn-danger" (click)="removeFromCart(cartItem.id)">Remove form cart</button>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card-body">
+              <p class="card-text"><small>Delivery by Flipkart | <span class="text-success">Free</span></small></p>
+              <p class="card-text"><small class="text-muted" *ngIf="cartItem.isReplacable">Item is Replacable</small></p>
+            </div>
+          </div>
+        </div>    
+      </div>
+    </div>
+    <div class="card mb-3" *ngIf="noOfItems>0">
+      <div class="card-body">
+        Your have {{noOfItems}} <span *ngIf="noOfItems>1; else oneOrLess">items</span><ng-template #oneOrLess>item</ng-template> in your cart and total value of your cart is <strong>Rs.{{cartPrice}}</strong>
+      </div>
+    </div>
+    <button *ngIf="noOfItems>0" class="btn btn-success btn-lg btn-block animate__animated animate__rubberBand" routerLink="/home/checkout">Continue to place order</button>
+    <button class="btn btn-primary btn-sm btn-block" routerLink="/home">Add more items to your cart</button>
+</div>
+<div class="container" *ngIf="!(noOfItems>0)">
+  <div class="alert alert-danger">
+    Please add items to your cart and then visit this page
+  </div>
+  <div class="text-center">
+    <button class="btn btn-primary btn-lg animate__animated animate__jackInTheBox" routerLink="/home">Go to home</button>
+  </div>
+</div>
