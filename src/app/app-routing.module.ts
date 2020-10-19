@@ -5,12 +5,13 @@ import { CheckoutComponent } from './oct13/checkout/checkout.component';
 import { IndividualItemComponent } from './oct13/individual-item/individual-item.component';
 import { Oct13Component } from './oct13/oct13.component';
 import { NotFoundComponent } from './oct19/not-found/not-found.component';
+import { Oct19Module } from './oct19/oct19.module';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   component: Oct13Component
-  // },
+  {
+    path: '',
+    loadChildren: () => import('./oct19/oct19.module').then(m => m.Oct19Module)
+  },
   // {
   //   path: 'cart',
   //   component: CartComponent
