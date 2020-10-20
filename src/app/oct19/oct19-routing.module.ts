@@ -1,27 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CartComponent } from './cart/cart.component';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { IndividualItemComponent } from './individual-item/individual-item.component';
 
 const routes: Routes = [
-  { 
-    path: '',
-    component: HomePageComponent
-  },
-  {
-    path: 'cart',
-    component: CartComponent
-  },
-  {
-    path: 'item/:id',
-    component: IndividualItemComponent
-  },
-  {
-    path: 'checkout',
-    component: CheckoutComponent
-  },
+  { path: '', loadChildren: () => import('./homepage/homepage.module').then(m => m.HomepageModule) },
+  { path: 'item/:id', loadChildren: () => import('./individualitem/individualitem.module').then(m => m.IndividualitemModule) },
+  { path: 'checkout', loadChildren: () => import('./checkout/checkout.module').then(m => m.CheckoutModule) },
+  { path: 'cart', loadChildren: () => import('./cart/cart.module').then(m => m.CartModule) },
 ];
 
 @NgModule({

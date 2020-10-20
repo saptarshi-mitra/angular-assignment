@@ -3,11 +3,11 @@ import { MobileDataType } from '../data-type';
 import { MobileserviceService } from '../mobileservice.service';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+  selector: 'app-homepage',
+  templateUrl: './homepage.component.html',
+  styleUrls: ['./homepage.component.css']
 })
-export class HomePageComponent implements OnInit {
+export class HomepageComponent implements OnInit {
 
   mobiles: MobileDataType[]
   cart: MobileDataType[]

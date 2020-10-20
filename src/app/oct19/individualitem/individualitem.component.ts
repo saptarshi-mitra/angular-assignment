@@ -6,11 +6,11 @@ import { MobileDataType } from '../data-type';
 import { MobileserviceService } from '../mobileservice.service';
 
 @Component({
-  selector: 'app-individual-item',
-  templateUrl: './individual-item.component.html',
-  styleUrls: ['./individual-item.component.css']
+  selector: 'app-individualitem',
+  templateUrl: './individualitem.component.html',
+  styleUrls: ['./individualitem.component.css']
 })
-export class IndividualItemComponent implements OnInit {
+export class IndividualitemComponent implements OnInit {
 
   cart: MobileDataType[]
   mobile: MobileDataType

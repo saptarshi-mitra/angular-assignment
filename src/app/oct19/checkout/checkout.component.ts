@@ -25,7 +25,6 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.form)
     this.orderSuccess = true
     this._service.setCart([])
   }
@@ -35,6 +34,7 @@ export class CheckoutComponent implements OnInit {
   get email(){ return this.form.get('email') }
   get address(){ return this.form.get('address') }
   get country(){ return this.form.get('country') }
-  get city(){ return this.form.get('country') }
+  get city(){ return this.form.get('city') }
   get zip(){ return this.form.get('zip') }
+
 }
